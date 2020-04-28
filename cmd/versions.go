@@ -118,3 +118,16 @@ func mustAtoi(str string) int {
 	num, _ := strconv.Atoi(str)
 	return num
 }
+
+func VersionExists(v string) (bool, error) {
+	versions, err := availableVersions()
+	if err != nil {
+		return false, err
+	}
+	for _, version := range versions {
+		if version.String() == v {
+			return true, nil
+		}
+	}
+	return false, nil
+}

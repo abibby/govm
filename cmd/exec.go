@@ -32,6 +32,7 @@ var execCmd = &cobra.Command{
 				}
 			}
 		}
+
 		err := Exec(goCMD, args...)
 		if err, ok := err.(*exec.ExitError); ok {
 			os.Exit(err.ExitCode())
