@@ -9,8 +9,9 @@ import (
 
 // useCmd represents the use command
 var useCmd = &cobra.Command{
-	Use:   "use",
-	Short: "Set the go version to use in the current directory",
+	Use:                    "use",
+	Short:                  "Set the go version to use in the current directory",
+	BashCompletionFunction: `test`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ok, err := VersionExists("go" + args[0])
 		if err != nil {
