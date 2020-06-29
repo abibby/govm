@@ -157,6 +157,7 @@ func isInDir(dir, file string) bool {
 
 func Exec(name string, args ...string) error {
 	cmd := exec.Command(name, args...)
+	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
